@@ -410,6 +410,11 @@ m> Config STA to link as hybrid(dongle+clone) mode
 	usage: iwpriv ra0 set EthConvertMode=hybrid
 		   iwpriv ra0 set EthCloneMac="Desired MAC"		;; 00:00:00:00:00:00 means using STA own MAC
 														;; FF:FF:FF:FF:FF:FF means using source MAC of first packet coming from wired device
+														
+n> Scan for WiFi Networks and get sitesurvey
+	usage:  iwpriv ra0 set SiteSurvey=1
+		sleep 1
+		iwpriv ra0 get_site_survey ra0
 
 ===================================================================
 
