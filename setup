@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+
+echo "Installing initial updates \n"
+    sudo apt update
+    sudo apt upgrade
+
+echo "Installing synaptic package manager \n"
+    sudo apt install -y synaptic 
+
+echo "Installing curl ... \n"
+  sudo apt install -y curl
+  
+echo "Installing openssh ... \n"
+    sudo apt install -y openssh-server
+    sudo service ssh restart
+
+echo "Installing python3-pip and sagemath ...  \n"
+    sudo apt install -y python3-pip
+    sudo apt install  -y sagemath  sagemath-jupyter
+
+echo "Installing rust ..."
+    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
+
+echo "Installing git, for source control management ... \n"
+    sudo apt install -y git
+
+echo "Installing libraries for common gem dependencies ... \n"
+    sudo apt install -y libxslt1-dev libcurl4-openssl-dev libksba8 libksba-dev libqtwebkit-dev libreadline-dev build-essential apt-transport-https ca-certificates gnupg-agent software-properties-common
+
+echo "Installing snapd canonical package manager ...  \n"
+    sudo apt install -y snapd
+
+echo "Installing VLC media player ...  \n"
+    sudo snap install vlc
+
+
+echo "Installing simple screen recorder ...  \n"
+    sudo apt install -y simplescreenrecorder
+
+echo "Installing sqlite3, for prototyping database-backed rails apps ...  \n"
+    sudo apt install -y libsqlite3-dev sqlite3
+
+
+echo "Installing tmux, to save project state and switch between projects ... \n"
+    sudo apt install -y tmux
+
+echo "Installing terminator ...  \n"
+    sudo apt install -y terminator
+
+
+echo "Installing brave-browser ...  \n"
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    sudo apt install -y brave-browser
+
+
+echo "Installing spotify ...  \n"
+    sudo apt install -y spotify
+
+
+echo "Installing VS Code ...  \n"
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+    sudo apt update && sudo apt install -y code
+
+echo "Installing LaTeX and TeXstudio  \n"
+    sudo apt install -y texlive-latex-extra
+    sudo add-apt-repository -y ppa:sunderme/texstudio
+    sudo apt -y remove texstudio-doc texstudio-l10n
+    sudo apt update && sudo apt install -y texstudio
+
+
